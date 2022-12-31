@@ -221,10 +221,10 @@ do
      printf("  ---------------------------\n");
   printf("           || MENU ||\n");
   printf("  ---------------------------\n");
-  printf("1. Consultation de la liste des produits \n"
-         "2. Recherche d'un produit \n"
-         "3. Effectuer une operation d'achat \n"
-	 "4. Quitter le mode client \n");
+  printf(" 1. Consultation de la liste des produits \n"
+         " 2. Recherche d'un produit \n"
+         " 3. Effectuer une operation d'achat \n"
+	 " 4. Quitter le mode client \n");
 
  scanf("%d",&choixOb);
  } while( (choixOb<1)||(choixOb>4) );
@@ -1072,13 +1072,13 @@ FINAL=fopen("fichiersAux//produitsFinalClient.txt","a");
 
 
 
-        printf("\n Votre montant total est : %f",CalculMontant(nouveauS.codeProd,nouveauS.quantiAchat));
-        printf(" Voulez vous confirmer l'operation de l'achat OUI/NON ? \n");
+        printf("\n Votre montant total est : %.3f",CalculMontant(nouveauS.codeProd,nouveauS.quantiAchat));
+        printf(" Voulez vous confirmer l'operation de l'achat OUI/NON ? \n ");
         scanf(" %s",&ON);
         while(strcmp(ON,"OUI")!=0 && strcmp(ON,"NON")!=0){
 
-        printf(" Voulez vous confirmer l'operation de l'achat O/N ? \n");
-        scanf("%s",&ON);
+        printf(" Voulez vous confirmer l'operation de l'achat O/N ? \n ");
+        scanf(" %s",&ON);
 
 
         }
@@ -1376,6 +1376,8 @@ do
 	    scanf("%s",&code);
 
 	    }
+	        P=fopen("produitFINAL.txt","r");
+
 	    for(int i=0;i<nbProduits();++i){
 
             fscanf(P, "%s  ",&p.codeP);
@@ -1386,25 +1388,29 @@ do
 
             fscanf(P, "%d\n",&p.stockP);
 	      if( strcmp(code,p.codeP)==0){
-                printf(" Code Produit : %s  Reference : %s  Description : %s  Prix : %f  Stock: %d  \n",p.codeP,p.refP,p.descriP,p.prixP,p.stockP);}
+                printf(" Code Produit : %s  Reference : %s  Description : %s  Prix : %.2f  Stock: %d  \n",p.codeP,p.refP,p.descriP,p.prixP,p.stockP);}
            }
+           fclose(P);
 	     break ;
          case 2:
+                 P=fopen("produitFINAL.txt","r");
+
               printf("--------------------------------------\n");
   printf("      | Recherche par reference |\n");
   printf("--------------------------------------\n");
                printf(" Entrez la reference: ");
 	    scanf("%s",&ref);
-	    for(int j=0;i<nbProduits();j++){
+	    for(int j=0;j<nbProduits();j++){
             fscanf(P, "%s  ",&p.codeP);
             fscanf(P, "%s  ",&p.refP);
             fscanf(P, "%s  ",&p.descriP);
             fscanf(P, "%f  ",&p.prixP);
             fscanf(P, "%d\n",&p.stockP);
 	      if( strcmp(ref,p.refP)==0){
-                printf(" Code Produit : %s  Reference : %s  Descrittion : %s  Prix : %f  Stock: %d  \n",p.codeP,p.refP,p.descriP,p.prixP,p.stockP);
+                printf(" Code Produit : %s  Reference : %s  Description : %s  Prix : %.2f  Stock: %d  \n",p.codeP,p.refP,p.descriP,p.prixP,p.stockP);
 
          }}
+         fclose(P);
         break;
          case 3:
             return 0 ;
@@ -1465,6 +1471,8 @@ do
 	    scanf("%s",&code);
 
 	    }
+	        P=fopen("produitFINAL.txt","r");
+
 	    for(int i=0;i<nbProduits();++i){
 
             fscanf(P, "%s  ",&p.codeP);
@@ -1474,25 +1482,29 @@ do
 
             fscanf(P, "%d\n",&p.stockP);
 	      if( strcmp(code,p.codeP)==0){
-                printf(" Code Produit : %s, Reference : %s, Descrittion : %s, Prix : %f  \n",p.codeP,p.refP,p.descriP,p.prixP);}
+                printf(" Code Produit : %s  Reference : %s  Description : %s  Prix : %.2f  \n",p.codeP,p.refP,p.descriP,p.prixP);}
            }
+           fclose(P);
 	     break ;
          case 2:
+                 P=fopen("produitFINAL.txt","r");
+
              printf("--------------------------------------\n");
   printf("      | Recherche par reference |\n");
   printf("--------------------------------------\n");
                printf(" Entrez la reference: ");
 	    scanf("%s",&ref);
-	    for(int j=0;i<nbProduits();j++){
+	    for(int j=0;j<nbProduits();j++){
             fscanf(P, "%s  ",&p.codeP);
             fscanf(P, "%s  ",&p.refP);
             fscanf(P, "%s  ",&p.descriP);
             fscanf(P, "%f  ",&p.prixP);
             fscanf(P, "%d\n",&p.stockP);
 	      if( strcmp(ref,p.refP)==0){
-                printf(" Code Produit : %s, Reference : %s, Description : %s, Prix : %f  \n",p.codeP,p.refP,p.descriP,p.prixP);
+                printf(" Code Produit : %s  Reference : %s  Description : %s  Prix : %.2f  \n",p.codeP,p.refP,p.descriP,p.prixP);
 
          }}
+         fclose(P);
         break;
          case 3:
             return 0 ;
@@ -5014,6 +5026,7 @@ Menu(modeChoisi);
 
 
 }
+
 
 
 
