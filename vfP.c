@@ -35,6 +35,8 @@ float montantTot;
 Client client;
 
 }HistoriqueSortie;
+
+///deux modes CLIENT et MANAGER
 int mode(){
 
    int choixMo;
@@ -268,6 +270,8 @@ do
 
 
 ///***************************
+
+// calcul de nombre de produit
   int nbProduits(){
   FILE *f;
   Produit elem;
@@ -345,7 +349,7 @@ int testCode(char code[100]){
 
 }
 ///**********
-
+// ajout d'un nouveau produit
 void ajoutNouveauP(){
 
 FILE *f;
@@ -462,6 +466,8 @@ fclose(NV);
 
 
 ///******
+
+//ajout d'une nouvelle entree par le manager
 void AjoutHisEntree(char codeEnt[20], int *quantity){
 FILE *f2;
 FILE *f3;
@@ -696,7 +702,7 @@ fclose(P);
 
 
 ///******
-
+//affichage de la liste des produits pour le mode client
 void AfficheProdClient(){
 
 Produit p;
@@ -732,7 +738,7 @@ fclose(P);
 ///***
 
 
-
+//affichage de la liste des produits pour le mode manager
 void AfficheProduitManager(){
 
 Produit p;
@@ -883,7 +889,7 @@ return nb;
 ///****
 
 
-
+// verifier le montant total par rapport au budget du client
 float verifMontant(){
 
 FILE *C;
@@ -905,6 +911,7 @@ return cl.montant;
 
 
 }
+//calcul du montant total apres l'operation de l'achat
 
 float CalculMontant(char code[20],int quantity){
 
@@ -977,6 +984,8 @@ return test;
 
 
 ///****
+
+//verifier si la quantité demandé par le client est disponible ou non
 int verifStock(char code[20],int stock){
 Produit p;
 int trouve=0;
@@ -1013,9 +1022,7 @@ return test;
 ///****
 
 
-///***
-
-
+//ajout de l'historique sortie apres une operation d'achat
 
 
 void AjoutHisSortie(char codeSort[20], int *quantityAch){
@@ -1330,7 +1337,7 @@ void MiseAjour(){
 
 
 
-
+//recherche d'un produit
  void RechercheProduit(){
 
     FILE *P;
@@ -1424,6 +1431,8 @@ do
 
  ///****
 
+ //recherche d'un produit
+
   void RechercheProduitClient(){
 
     FILE *P;
@@ -1514,6 +1523,8 @@ do
      }
 
  }}
+
+ //suppression d'un produit
 
  ///***
 void SuppressionProduits(char code[20]){
@@ -1816,6 +1827,7 @@ void SuppressionProduitFINAL(char code[20]){
 
 
 ///***
+//suppresion de produit dans l'historique
 
 
 void SuppressionHisS(char code[20]){
@@ -1916,6 +1928,8 @@ FILE *f3;
 
 
   }
+
+  //modification d'une des caracteristique de produit
 
 
   void Modification(){
@@ -2835,7 +2849,7 @@ else{
 
 
 }}
-///**** Modification de reference
+///****
 ///****
 
 
@@ -4606,7 +4620,7 @@ void ModificationFINALCLient4(char code[20],float *pr){
 
 
 
-  // tout//
+  // afficher tout//
   void tout()
   {
 
@@ -4641,7 +4655,7 @@ void ModificationFINALCLient4(char code[20],float *pr){
      }
 
          fclose(His); }
-     // jour //
+     // afficher par jour //
 
      void jour ()
   {
@@ -4687,6 +4701,8 @@ void ModificationFINALCLient4(char code[20],float *pr){
 
 
   ///***
+
+  //affichage de l'historique entree
 
   void AffichageHis(){
 
@@ -4746,7 +4762,7 @@ void ModificationFINALCLient4(char code[20],float *pr){
 
 ///***
 
-
+//affichage de l'historique sortie
 
 void AffichageHisSortie (){
 
@@ -4973,7 +4989,7 @@ void toutsortie()
 ///***
 
 
-
+//afficher la liste des clients
 void AffichageClient()
 {
 
